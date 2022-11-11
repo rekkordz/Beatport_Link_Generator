@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+<title>Beatport Link Generator v1</title>
+<meta name="description" content="Beatport Link Generator">
+<meta name="keywords" content="Beatport Link Generator">
+<style>
+body {
+  background-color: white;
+}
+
+h1 {
+  color: black;
+  text-align: left;
+  font-family: verdana;
+  font-size: 24px;
+}
+
+h2 {
+  color: black;
+  text-align: left;
+  font-family: verdana;
+  font-size: 20px;
+}
+
+form {
+  color: black;
+  text-align: left;
+  font-family: verdana;
+  font-size: 14px;
+  
+}
+</style>
+</head>
+<body>
+<h1>Beatport Link Generator v1</h1>
+<form>
+<h2>BPM range</h2>
+	<label for="bpmlow">BPM lowest:</label> <input type="text" id="bpmlow" name="bpmlow" size="4" value="110"> 
+	<br><br>
+	<label for="bpmhigh">BPM highest:</label> <input type="text" id="bpmhigh" name="bpmhigh" size="4" value="130">
+</form>
+<form>
+  <h2>Genres</h2>
+  <input type="checkbox" id="genre3" name="genre" value="3"> <label for="genre3">Electronica</label><br>
+  <input type="checkbox" id="genre14" name="genre" value="14"> <label for="genre14">Minimal / Deep-Tech</label><br> 
+  <input type="checkbox" id="genre15" name="genre" value="15"> <label for="genre15"> Progressive House</label><br>
+  <input type="checkbox" id="genre37" name="genre" value="37"> <label for="genre37">Indie Dance</label><br>
+  <input type="checkbox" id="genre90" name="genre" value="90" checked=true> <label for="genre90">Melodic House & Techno</label><br>
+  <input type="checkbox" id="genre6" name="genre" value="6"> <label for="genre6">Techno / Peak-Time / Driving</label><br>
+  </form>
+<form>
+  <h2>Major keys (Dur)</h2>
+  <input type="checkbox" id="key19" name="key" value="19" checked=true> <label for="key19">F</label>
+  <input type="checkbox" id="key20" name="key" value="20"> <label for="key20">C</label>
+  <input type="checkbox" id="key21" name="key" value="21"> <label for="key21">G</label>
+  <input type="checkbox" id="key22" name="key" value="22"> <label for="key22">D</label>
+  <input type="checkbox" id="key23" name="key" value="23"> <label for="key23">A</label>
+  <input type="checkbox" id="key24" name="key" value="24"> <label for="key24">E</label>
+  <input type="checkbox" id="key13" name="key" value="13"> <label for="key13">B</label>
+  <br>
+  <input type="checkbox" id="key14" name="key" value="14"> <label for="key14">F#</label>
+  <input type="checkbox" id="key27" name="key" value="27"> <label for="key27">C#</label>
+  <input type="checkbox" id="key31" name="key" value="31"> <label for="key31">G#</label>
+  <input type="checkbox" id="key29" name="key" value="29"> <label for="key29">D#</label>
+  <input type="checkbox" id="key25" name="key" value="25"> <label for="key25">A#</label>
+  <br>
+</form>
+<form>  
+  <input type="checkbox" id="key33" name="key" value="33"> <label for="key33">F# (Gb)</label>
+  <input type="checkbox" id="key15" name="key" value="15"> <label for="key15">C# (Db)</label>
+  <input type="checkbox" id="key16" name="key" value="16"> <label for="key16">G# (Ab)</label>
+  <input type="checkbox" id="key17" name="key" value="17"> <label for="key17">D# (Eb)</label>
+  <input type="checkbox" id="key18" name="key" value="18"> <label for="key18">A# (Bb)</label>
+  <br>
+</form>
+<form>
+  <h2>Minor keys (Moll)</h2>
+  <input type="checkbox" id="key4" name="key" value="4"> <label for="key4">Fm</label>
+  <input type="checkbox" id="key5" name="key" value="5"> <label for="key5">Cm</label>
+  <input type="checkbox" id="key6" name="key" value="6"> <label for="key6">Gm</label>
+  <input type="checkbox" id="key7" name="key" value="7"> <label for="key7">Dm</label>
+  <input type="checkbox" id="key8" name="key" value="8"> <label for="key8">Am</label>
+  <input type="checkbox" id="key9" name="key" value="9"> <label for="key9">Em</label>
+  <input type="checkbox" id="key10" name="key" value="10"> <label for="key10">Bm</label>
+  <br>
+  <input type="checkbox" id="key11" name="key" value="11"> <label for="key11">F#m</label>
+  <input type="checkbox" id="key28" name="key" value="28"> <label for="key28">C#m</label>
+  <input type="checkbox" id="key32" name="key" value="32"> <label for="key32">G#m</label>
+  <input type="checkbox" id="key30" name="key" value="30"> <label for="key30">D#m</label>
+  <input type="checkbox" id="key26" name="key" value="26"> <label for="key26">A#m</label>
+  <br>
+</form>
+<form>  
+  <input type="checkbox" id="key34" name="key" value="34"> <label for="key34">F#m (Gbm)</label>
+  <input type="checkbox" id="key12" name="key" value="12"> <label for="key12">C#m (Dbm)</label>
+  <input type="checkbox" id="key1" name="key" value="1"> <label for="key1">G#m (Abm)</label>
+  <input type="checkbox" id="key2" name="key" value="2"> <label for="key2">D#m (Ebm)</label>
+  <input type="checkbox" id="key3" name="key" value="3"> <label for="key3">A#m (Bbm)</label>
+  <br><br><br>
+</form>
+<button onclick="clickyClick()" id="bt">Link</button><br>
+<script type='text/javascript'>
+        function clickyClick() {
+
+			var checkgen = document.getElementsByName('genre');
+  
+            var resgen = "";
+  
+            for (var i = 0; i < checkgen.length; i++) {
+                if (checkgen[i].checked) {
+                    resgen += checkgen[i].value 
+                        + ",";
+                }
+			}
+			
+			const resgenr = resgen.slice(0, resgen.length - 1)
+			
+			var checkkey = document.getElementsByName('key');
+  
+            var reskey = "";
+  
+            for (var i = 0; i < checkkey.length; i++) {
+                if (checkkey[i].checked) {
+                    reskey += checkkey[i].value 
+                        + ",";
+                }
+			}
+			
+			const reskeyr = reskey.slice(0, reskey.length - 1) 
+			
+            url = 'https://www.beatport.com/tracks/all?bpm-low='
+			+ document.getElementById("bpmlow").value
+			+ '&bpm-high=' 
+			+ document.getElementById("bpmhigh").value
+			+ '&genres='
+			+ resgenr
+			+ '&key='
+			+ reskeyr
+			
+            window.open(url, '_blank');
+        }
+</script>
+</body>
+</html>
